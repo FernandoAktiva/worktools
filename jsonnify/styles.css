@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+
+* {
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-size: 0.8rem;
+    background-color: #000;
+    color: #00ff00;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    margin-bottom: 3rem;
+}
+
+/* Textarea Styled as a CRT Screen */
+textarea {
+    width: 100%;
+    width: 600px;
+    height: 200px;
+    padding: 15px;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #000;
+    color: #00ff00;
+    box-shadow: inset 0 25px 50px -25px white, inset 0 -25px 20px -5px black;
+    text-shadow: 0 0 5px #00ff00;
+    /* Adding scan lines */
+    background-image:
+        repeating-linear-gradient(0deg,
+            rgba(0, 255, 0, 0.15) 1px,
+            rgba(0, 255, 0, 0.15) 3px,
+            transparent 4px,
+            transparent 8px);
+    background-size: 100% 4px;
+    caret-color: #00ff00;
+    resize: none;
+    outline: none;
+}
+
+textarea:focus {
+    animation: flicker 2s infinite;
+    box-shadow: inset 0 25px 50px -25px white, inset 0 -25px 20px -5px black,
+        0 0 20px #00ff00,
+        inset 0 0 10px #00ff00;
+}
+
+.here-it-is:focus {
+    animation: flicker 2s infinite;
+    box-shadow:
+        0 0 20px #00ff00,
+        inset 0 0 10px #00ff00;
+}
+
+/* Button Styling */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #00ff00;
+    background-color: #000;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 2px 4px rgba(0, 255, 0, 0.2);
+}
+
+button:hover {
+    background-color: #00ff00;
+    color: #000;
+    box-shadow: 0px 4px 8px rgba(0, 255, 0, 0.4);
+}
+
+/* Output Div Styled as CRT Display */
+.here-it-is {
+    margin-top: 30px;
+    width: 600px;
+    height: 200px;
+    padding: 20px;
+    background-color: #000;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    color: #00ff00;
+    font-size: 1em;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    /* background-image:
+        repeating-linear-gradient(0deg,
+            rgba(0, 255, 0, 0.15) 2px,
+            rgba(0, 255, 0, 0.15) 6px,
+            transparent 6px,
+            transparent 8px); */
+    background-size: 100% 3px;
+    overflow-y: auto;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 600px) {
+
+    textarea,
+    .here-it-is {
+        max-width: 100%;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.2em;
+    }
+}
+
+/* Flicker Effect Animation */
+@keyframes flicker {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.75;
+    }
+}
